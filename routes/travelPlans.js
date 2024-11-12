@@ -40,7 +40,7 @@ router.post("/add", AuthenticationMiddleware, async (req, res, next) => {
   // and map the fields with data from the request
   // newProject object is returned if operation was successful
   // save changes and redirect
-  let newTravelPlan = new Project({
+  let newTravelPlan = new TravelPlan({
     budget: req.body.budget,
     date: req.body.date,
     country: req.body.country,

@@ -14,12 +14,7 @@
       <tr>
         <td>{{this.countryName}}</td>
         <td>{{this.currency}}</td>
-        {{#if ../user}}
-          <td>
-            <a href="/countries/edit/{{this._id}}" class="btn btn-primary">Edit</a>
-            <a href="/countries/delete/{{this._id}}" class="btn btn-danger" onclick="return confirmDeletion()">Delete</a>
-          </td>
-        {{/if}}
+        
       </tr>
     {{/each}}
   </tbody>
