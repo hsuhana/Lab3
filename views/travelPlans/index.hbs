@@ -1,0 +1,31 @@
+<h1>{{title}}</h1>
+{{#if user}}
+  <a href="/travelPlans/add">Add a new Travel Plan</a>
+{{/if}}
+
+<table class="table table-striped table-hover">
+  <thead>
+    <th>Budget</th>
+    <th>Date</th>
+    <th>Country</th>
+    <th>Status</th>
+    <th></th>
+  </thead>
+  <tbody>
+    {{#each dataset}}
+      <tr>
+        <td>{{this.budget}}</td>
+        <td>{{toShortDate this.date}}</td>
+        <td>{{this.country.countryName}}</td>
+        <td>{{this.status}}</td>
+        {{#if ../user}}
+          <td>
+            <a href="/travelPlans/edit/{{this._id}}" class="btn btn-primary">Edit</a>
+            <a href="/travelPlans/delete/{{this._id}}" class="btn btn-danger" onclick="return confirmDeletion()">Delete</a>
+          </td>
+        {{/if}}
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+

@@ -1,0 +1,26 @@
+<h1>{{title}}</h1>
+{{#if user}}
+  <a href="/countries/add">Add a new Country</a>
+{{/if}}
+
+<table class="table table-striped table-hover">
+  <thead>
+    <th>Country Name</th>
+    <th>Currency</th>
+    <th></th>
+  </thead>
+  <tbody>
+    {{#each dataset}}
+      <tr>
+        <td>{{this.countryName}}</td>
+        <td>{{this.currency}}</td>
+        {{#if ../user}}
+          <td>
+            <a href="/countries/edit/{{this._id}}" class="btn btn-primary">Edit</a>
+            <a href="/countries/delete/{{this._id}}" class="btn btn-danger" onclick="return confirmDeletion()">Delete</a>
+          </td>
+        {{/if}}
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

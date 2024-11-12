@@ -1,0 +1,28 @@
+<h1>{{title}}</h1>
+<form method="POST">
+  <fieldset>
+    <label for="budget" class="col-2">Budget:</label>
+    <input name="budget" id="budget" required type="number" min="0" value="{{travelPlan.budget}}" />
+  </fieldset>
+  <fieldset>
+    <label for="date" class="col-2">Travel Date:</label>
+    <input name="date" id="date" required type="date" value="{{toShortDate travelPlan.date}}" />
+  </fieldset>
+  <fieldset>
+    <label for="country" class="col-2">Country:</label>
+    <select name="country" id="country">
+      {{#each countries}}
+        <option value="{{this._id}}" {{#ifEquals this._id ../travelPlan.country._id}}selected{{/ifEquals}}>{{this.countryName}}</option>
+      {{/each}}
+    </select>
+  </fieldset>
+  <fieldset>
+    <label for="status" class="col-2">Status:</label>
+    <select name="status" id="status">
+      <option value="haven't been there" {{#ifEquals travelPlan.status "haven't been there"}}selected{{/ifEquals}}>Haven't been there</option>
+      <option value="completed" {{#ifEquals travelPlan.status "completed"}}selected{{/ifEquals}}>Completed</option>
+      <option value="canceled" {{#ifEquals travelPlan.status "canceled"}}selected{{/ifEquals}}>Canceled</option>
+    </select>
+  </fieldset>
+  <button class="btn btn-primary">Save</button>
+</form>
